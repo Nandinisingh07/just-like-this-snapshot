@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { WorkbenchPage } from "@/lib/workbench";
+export const Route = createFileRoute("/assistant")({ head: () => ({ meta: [{ title: "AI Assistant — TarkAI | MRPL" }, { name: "description", content: "Use the TarkAI on-premise AI assistant workspace for MRPL." }, { property: "og:title", content: "AI Assistant — TarkAI | MRPL" }, { property: "og:description", content: "A secure local AI assistant workspace for MRPL." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <WorkbenchPage page="assistant"/> });

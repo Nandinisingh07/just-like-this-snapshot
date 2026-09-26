@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { WorkbenchPage } from "@/lib/workbench";
+export const Route = createFileRoute("/air-gap")({ head: () => ({ meta: [{ title: "Air-gap Monitor — TarkAI | MRPL" }, { name: "description", content: "Review air-gap and connectivity telemetry status in TarkAI." }, { property: "og:title", content: "Air-gap Monitor — TarkAI | MRPL" }, { property: "og:description", content: "Connectivity monitoring status for the TarkAI workbench." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <WorkbenchPage page="air-gap"/> });

@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { WorkbenchPage } from "@/lib/workbench";
+export const Route = createFileRoute("/reasoning")({ head: () => ({ meta: [{ title: "Agent Reasoning — TarkAI | MRPL" }, { name: "description", content: "Inspect agent execution traces in the TarkAI MRPL workbench." }, { property: "og:title", content: "Agent Reasoning — TarkAI | MRPL" }, { property: "og:description", content: "Review agent execution traces in TarkAI." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <WorkbenchPage page="reasoning"/> });

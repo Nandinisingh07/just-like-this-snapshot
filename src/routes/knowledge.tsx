@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { WorkbenchPage } from "@/lib/workbench";
+export const Route = createFileRoute("/knowledge")({ head: () => ({ meta: [{ title: "Knowledge Search — TarkAI | MRPL" }, { name: "description", content: "Search internal knowledge with grounded sources in TarkAI." }, { property: "og:title", content: "Knowledge Search — TarkAI | MRPL" }, { property: "og:description", content: "Search connected internal knowledge in TarkAI." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <WorkbenchPage page="knowledge"/> });
