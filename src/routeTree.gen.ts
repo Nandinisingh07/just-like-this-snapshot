@@ -9,27 +9,223 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as AirGapRouteImport } from './routes/air-gap'
+import { Route as ApprovalsRouteImport } from './routes/approvals'
+import { Route as AssistantRouteImport } from './routes/assistant'
+import { Route as DeliverablesRouteImport } from './routes/deliverables'
+import { Route as KnowledgeRouteImport } from './routes/knowledge'
+import { Route as OperationsRouteImport } from './routes/operations'
+import { Route as ReasoningRouteImport } from './routes/reasoning'
+import { Route as RouterRouteImport } from './routes/router'
+import { Route as ToolsRouteImport } from './routes/tools'
 
-export interface FileRoutesByFullPath {}
-export interface FileRoutesByTo {}
+const AirGapRoute = AirGapRouteImport.update({
+  id: '/air-gap',
+  path: '/air-gap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApprovalsRoute = ApprovalsRouteImport.update({
+  id: '/approvals',
+  path: '/approvals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AssistantRoute = AssistantRouteImport.update({
+  id: '/assistant',
+  path: '/assistant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DeliverablesRoute = DeliverablesRouteImport.update({
+  id: '/deliverables',
+  path: '/deliverables',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KnowledgeRoute = KnowledgeRouteImport.update({
+  id: '/knowledge',
+  path: '/knowledge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OperationsRoute = OperationsRouteImport.update({
+  id: '/operations',
+  path: '/operations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReasoningRoute = ReasoningRouteImport.update({
+  id: '/reasoning',
+  path: '/reasoning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RouterRoute = RouterRouteImport.update({
+  id: '/router',
+  path: '/router',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsRoute = ToolsRouteImport.update({
+  id: '/tools',
+  path: '/tools',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+export interface FileRoutesByFullPath {
+  '/air-gap': typeof AirGapRoute
+  '/approvals': typeof ApprovalsRoute
+  '/assistant': typeof AssistantRoute
+  '/deliverables': typeof DeliverablesRoute
+  '/knowledge': typeof KnowledgeRoute
+  '/operations': typeof OperationsRoute
+  '/reasoning': typeof ReasoningRoute
+  '/router': typeof RouterRoute
+  '/tools': typeof ToolsRoute
+}
+export interface FileRoutesByTo {
+  '/air-gap': typeof AirGapRoute
+  '/approvals': typeof ApprovalsRoute
+  '/assistant': typeof AssistantRoute
+  '/deliverables': typeof DeliverablesRoute
+  '/knowledge': typeof KnowledgeRoute
+  '/operations': typeof OperationsRoute
+  '/reasoning': typeof ReasoningRoute
+  '/router': typeof RouterRoute
+  '/tools': typeof ToolsRoute
+}
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/air-gap': typeof AirGapRoute
+  '/approvals': typeof ApprovalsRoute
+  '/assistant': typeof AssistantRoute
+  '/deliverables': typeof DeliverablesRoute
+  '/knowledge': typeof KnowledgeRoute
+  '/operations': typeof OperationsRoute
+  '/reasoning': typeof ReasoningRoute
+  '/router': typeof RouterRoute
+  '/tools': typeof ToolsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: never
+  fullPaths:
+    | '/air-gap'
+    | '/approvals'
+    | '/assistant'
+    | '/deliverables'
+    | '/knowledge'
+    | '/operations'
+    | '/reasoning'
+    | '/router'
+    | '/tools'
   fileRoutesByTo: FileRoutesByTo
-  to: never
-  id: '__root__'
+  to:
+    | '/air-gap'
+    | '/approvals'
+    | '/assistant'
+    | '/deliverables'
+    | '/knowledge'
+    | '/operations'
+    | '/reasoning'
+    | '/router'
+    | '/tools'
+  id:
+    | '__root__'
+    | '/air-gap'
+    | '/approvals'
+    | '/assistant'
+    | '/deliverables'
+    | '/knowledge'
+    | '/operations'
+    | '/reasoning'
+    | '/router'
+    | '/tools'
   fileRoutesById: FileRoutesById
 }
-export interface RootRouteChildren {}
-
-declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {}
+export interface RootRouteChildren {
+  AirGapRoute: typeof AirGapRoute
+  ApprovalsRoute: typeof ApprovalsRoute
+  AssistantRoute: typeof AssistantRoute
+  DeliverablesRoute: typeof DeliverablesRoute
+  KnowledgeRoute: typeof KnowledgeRoute
+  OperationsRoute: typeof OperationsRoute
+  ReasoningRoute: typeof ReasoningRoute
+  RouterRoute: typeof RouterRoute
+  ToolsRoute: typeof ToolsRoute
 }
 
-const rootRouteChildren: RootRouteChildren = {}
+declare module '@tanstack/react-router' {
+  interface FileRoutesByPath {
+    '/air-gap': {
+      id: '/air-gap'
+      path: '/air-gap'
+      fullPath: '/air-gap'
+      preLoaderRoute: typeof AirGapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/approvals': {
+      id: '/approvals'
+      path: '/approvals'
+      fullPath: '/approvals'
+      preLoaderRoute: typeof ApprovalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assistant': {
+      id: '/assistant'
+      path: '/assistant'
+      fullPath: '/assistant'
+      preLoaderRoute: typeof AssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/deliverables': {
+      id: '/deliverables'
+      path: '/deliverables'
+      fullPath: '/deliverables'
+      preLoaderRoute: typeof DeliverablesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/knowledge': {
+      id: '/knowledge'
+      path: '/knowledge'
+      fullPath: '/knowledge'
+      preLoaderRoute: typeof KnowledgeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/operations': {
+      id: '/operations'
+      path: '/operations'
+      fullPath: '/operations'
+      preLoaderRoute: typeof OperationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reasoning': {
+      id: '/reasoning'
+      path: '/reasoning'
+      fullPath: '/reasoning'
+      preLoaderRoute: typeof ReasoningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/router': {
+      id: '/router'
+      path: '/router'
+      fullPath: '/router'
+      preLoaderRoute: typeof RouterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools': {
+      id: '/tools'
+      path: '/tools'
+      fullPath: '/tools'
+      preLoaderRoute: typeof ToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+  }
+}
+
+const rootRouteChildren: RootRouteChildren = {
+  AirGapRoute: AirGapRoute,
+  ApprovalsRoute: ApprovalsRoute,
+  AssistantRoute: AssistantRoute,
+  DeliverablesRoute: DeliverablesRoute,
+  KnowledgeRoute: KnowledgeRoute,
+  OperationsRoute: OperationsRoute,
+  ReasoningRoute: ReasoningRoute,
+  RouterRoute: RouterRoute,
+  ToolsRoute: ToolsRoute,
+}
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
