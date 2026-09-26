@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { WorkbenchPage } from "@/lib/workbench";
+export const Route = createFileRoute("/approvals")({ head: () => ({ meta: [{ title: "Approvals — TarkAI | MRPL" }, { name: "description", content: "Review items awaiting human approval in TarkAI." }, { property: "og:title", content: "Approvals — TarkAI | MRPL" }, { property: "og:description", content: "Human review queue for the TarkAI workbench." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <WorkbenchPage page="approvals"/> });
