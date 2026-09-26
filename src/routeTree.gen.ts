@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as AirGapRouteImport } from './routes/air-gap'
 import { Route as ApprovalsRouteImport } from './routes/approvals'
 import { Route as AssistantRouteImport } from './routes/assistant'
@@ -19,6 +20,11 @@ import { Route as ReasoningRouteImport } from './routes/reasoning'
 import { Route as RouterRouteImport } from './routes/router'
 import { Route as ToolsRouteImport } from './routes/tools'
 
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AirGapRoute = AirGapRouteImport.update({
   id: '/air-gap',
   path: '/air-gap',
@@ -66,6 +72,7 @@ const ToolsRoute = ToolsRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
   '/air-gap': typeof AirGapRoute
   '/approvals': typeof ApprovalsRoute
   '/assistant': typeof AssistantRoute
@@ -77,6 +84,7 @@ export interface FileRoutesByFullPath {
   '/tools': typeof ToolsRoute
 }
 export interface FileRoutesByTo {
+  '/': typeof IndexRoute
   '/air-gap': typeof AirGapRoute
   '/approvals': typeof ApprovalsRoute
   '/assistant': typeof AssistantRoute
@@ -89,6 +97,7 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
   '/air-gap': typeof AirGapRoute
   '/approvals': typeof ApprovalsRoute
   '/assistant': typeof AssistantRoute
@@ -102,6 +111,7 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
+    | '/'
     | '/air-gap'
     | '/approvals'
     | '/assistant'
@@ -113,6 +123,7 @@ export interface FileRouteTypes {
     | '/tools'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/'
     | '/air-gap'
     | '/approvals'
     | '/assistant'
@@ -124,6 +135,7 @@ export interface FileRouteTypes {
     | '/tools'
   id:
     | '__root__'
+    | '/'
     | '/air-gap'
     | '/approvals'
     | '/assistant'
@@ -136,6 +148,7 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
   AirGapRoute: typeof AirGapRoute
   ApprovalsRoute: typeof ApprovalsRoute
   AssistantRoute: typeof AssistantRoute
@@ -149,6 +162,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/air-gap': {
       id: '/air-gap'
       path: '/air-gap'
@@ -216,6 +236,7 @@ declare module '@tanstack/react-router' {
 }
 
 const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
   AirGapRoute: AirGapRoute,
   ApprovalsRoute: ApprovalsRoute,
   AssistantRoute: AssistantRoute,
